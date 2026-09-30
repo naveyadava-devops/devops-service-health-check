@@ -6,6 +6,7 @@ if [ "$#" -lt 1 ]; then
 fi
 
 echo "Starting service health check..."
+echo "Host: $(hostname)"
 
 check_service() {
     if systemctl is-active --quiet "$1"; then
