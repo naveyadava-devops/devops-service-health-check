@@ -4,6 +4,9 @@ if [ "$#" -lt 1 ]; then
     echo "Usage: $0 <service1> [service2] [service3]"
     exit 1
 fi
+
+echo "Starting service health check..."
+
 check_service() {
     if systemctl is-active --quiet "$1"; then
         echo "Service: $1 -> Running"
