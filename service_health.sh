@@ -7,6 +7,9 @@ fi
 
 echo "Starting service health check..."
 echo "Host: $(hostname)"
+echo "Uptime: $(uptime -p)"
+LOAD=$(uptime | awk '{print $8, $9, $10}')
+echo "Load Average: $LOAD"
 
 check_service() {
     if systemctl is-active --quiet "$1"; then
